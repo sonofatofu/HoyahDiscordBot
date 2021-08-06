@@ -16,6 +16,11 @@ client.on('message', async message => {
             console.log('joined');
             const ytdl = require('ytdl-core');
             const dispatch = connection.play(ytdl('https://www.youtube.com/watch?v=UoXOnk0E2lI', { filter: 'audioonly' }));
+            dispatch.on('finish', () => {
+                console.log('finished playing');
+                connection.channel.leave();
+            });
+            
         } else {
             message.reply('You need to be in a voice channel to use this command!');
         }
