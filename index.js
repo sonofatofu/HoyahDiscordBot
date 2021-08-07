@@ -1,12 +1,11 @@
-require('dotenv').config;
+require('dotenv').config({path: ".env"});
 
 //bring in the discord js bot
 const Discord = require('discord.js');
 
 //New client
 const client = new Discord.Client();
-
-const discordLogin = process.env.discordLogin;
+const discordLogin = process.env.SECRET;
 
 //Listen to event
 client.once('ready', () => {
