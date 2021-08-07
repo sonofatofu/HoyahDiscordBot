@@ -1,8 +1,12 @@
+require('dotenv').config;
+
 //bring in the discord js bot
 const Discord = require('discord.js');
 
 //New client
 const client = new Discord.Client();
+
+const discordLogin = process.env.discordLogin;
 
 //Listen to event
 client.once('ready', () => {
@@ -28,4 +32,4 @@ client.on('message', async message => {
     }
 });
 
-client.login('ODczMTg5NzQzNTgyNjY2ODIy.YQ0zUQ.RpaQCasS2_0jqL4imIXnxSdQyvw');
+client.login(discordLogin);
